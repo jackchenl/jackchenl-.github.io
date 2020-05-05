@@ -24,18 +24,18 @@
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="递归函数原理技能包了解一下">
-<meta property="og:url" content="http://yoursite.com/2020/05/05/递归函数原理技能包了解一下/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/递归函数原理技能包了解一下/index.html">
 <meta property="og:site_name" content="小陈仔的博客">
 <meta property="og:description" content="最近在看一本书：算法图解，然后刚好看到了递归，自以为很简单的嘛，然后就啪啪啪的打脸了。为啥原因被打脸呢？请看下面简单的递归求数组和的函数： 12345678function sum (arr, value)&amp;#123;    if(arr.length)&amp;#123;        value +=  arr.pop();        sum(arr,value);    &amp;#125;    re">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2018/11/27/16754b8785bdbab5?w=251&h=928&f=png&s=38351">
-<meta property="og:updated_time" content="2020-05-05T09:05:13.914Z">
+<meta property="og:image" content="http://yoursite.com/2018/11/27/递归函数原理技能包了解一下/16754b8785bdbab5.jpg">
+<meta property="og:updated_time" content="2020-05-05T14:50:47.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="递归函数原理技能包了解一下">
 <meta name="twitter:description" content="最近在看一本书：算法图解，然后刚好看到了递归，自以为很简单的嘛，然后就啪啪啪的打脸了。为啥原因被打脸呢？请看下面简单的递归求数组和的函数： 12345678function sum (arr, value)&amp;#123;    if(arr.length)&amp;#123;        value +=  arr.pop();        sum(arr,value);    &amp;#125;    re">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2018/11/27/16754b8785bdbab5?w=251&h=928&f=png&s=38351">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/27/递归函数原理技能包了解一下/16754b8785bdbab5.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/05/05/递归函数原理技能包了解一下/">
+<link rel="canonical" href="http://yoursite.com/2018/11/27/递归函数原理技能包了解一下/">
 
 
 <script id="page-configurations">
@@ -154,7 +154,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/递归函数原理技能包了解一下/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/27/递归函数原理技能包了解一下/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -176,10 +176,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-05-05 17:04:54 / Modified: 17:05:13" itemprop="dateCreated datePublished" datetime="2020-05-05T17:04:54+08:00">2020-05-05</time>
+              <time title="Created: 2018-11-27 20:30:00" itemprop="dateCreated datePublished" datetime="2018-11-27T20:30:00+08:00">2018-11-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-05 22:50:47" itemprop="dateModified" datetime="2020-05-05T22:50:47+08:00">2020-05-05</time>
+              </span>
 
           
 
@@ -198,7 +204,7 @@
 <p>带着这个疑问 我就好好又温习了一遍递归章节<br><br>首先你必须知道 递归的两大条件：基线条件和递归条件<br><br>    &nbsp;&nbsp;<strong>1、基线条件：指的是停止调用自己的条件</strong><br><br>    &nbsp;&nbsp;<strong>2、递归条件：指的是调用自身的条件</strong><br></p>
 <p>知道了两大条件后我们还需要了解到 递归函数的原理：既计算机是如何调用递归式的函数：<br><br>    &nbsp;&nbsp;<strong>1、计算机中有一个调用栈的内存空间，这个空间 专门用于存放计算机将要调用的函数列表。</strong> <br><br>    &nbsp;&nbsp;<strong>2、调用栈的两种使用方式，压入栈和弹出栈，这两个方法，好似存放和再拿出来使用。</strong><br><br>    &nbsp;&nbsp;<strong>3、递归函数，其实刚开始执行时，是先把已知的待执行函数都存放到调用栈中，然后依次执行，由于栈是先进后出的，所以递归函数的执行顺序是和我们想象中的有所不同的。</strong><br></p>
 <p>好了，了解完递归的原理后，我们再拿开篇的函数sum 执行你会发现，刚开始执行时：sum([1,2],3)被放到待执行栈中。然后依次是sum([1],5)、sum([],6)<br>因为栈的特性：所以执行顺序刚好是相反的，sum([],6)  =&gt;  sum([1],5)  =&gt;  sum([1,2],3)  所以我们最终得到的 3<br><br><br><br>具体执行顺序请看完整的流程图：<br></p>
-<p><img src="https://user-gold-cdn.xitu.io/2018/11/27/16754b8785bdbab5?w=251&amp;h=928&amp;f=png&amp;s=38351" alt>)</p>
+<p><img src="16754b8785bdbab5.jpg" alt></p>
 <p>其实正确的写法很简单，并不需要传递多余的参数：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function sum(arr)&#123;</span><br><span class="line">    if(arr.length)&#123;</span><br><span class="line">        return arr.pop()  +  sum(arr)</span><br><span class="line">    &#125;</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line">sum([1,2,3]);</span><br></pre></td></tr></table></figure></p>
 <p>你get 到递归函数的技能了吗？</p>
 
@@ -219,10 +225,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/05/css网页的几种布局/" rel="prev" title="css网页的几种布局">
+    <a href="/2018/01/08/css网页的几种布局/" rel="prev" title="css网页的几种布局">
       <i class="fa fa-chevron-left"></i> css网页的几种布局
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/05/09/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -299,7 +308,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
