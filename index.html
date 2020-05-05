@@ -150,6 +150,73 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/递归函数原理技能包了解一下/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jack chen">
+      <meta itemprop="description" content="记录一只程序汪的生活、工作的总结，">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小陈仔的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/05/05/递归函数原理技能包了解一下/" class="post-title-link" itemprop="url">递归函数原理技能包了解一下</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-05-05 17:04:54 / Modified: 17:05:13" itemprop="dateCreated datePublished" datetime="2020-05-05T17:04:54+08:00">2020-05-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近在看一本书：算法图解，然后刚好看到了递归，自以为很简单的嘛，然后就啪啪啪的打脸了。为啥原因被打脸呢？请看下面简单的递归求数组和的函数：<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function sum (arr, value)&#123;</span><br><span class="line">    if(arr.length)&#123;</span><br><span class="line">        value +=  arr.pop();</span><br><span class="line">        sum(arr,value);</span><br><span class="line">    &#125;</span><br><span class="line">    return value;</span><br><span class="line">&#125;</span><br><span class="line">sum([1,2,3],0);</span><br></pre></td></tr></table></figure>
+<p>如果执行以上代码，你会发现：最终结果返回了3。当时很是纳闷？为什么会产生这个结果呢，<br></p>
+<p>带着这个疑问 我就好好又温习了一遍递归章节<br><br>首先你必须知道 递归的两大条件：基线条件和递归条件<br><br>    &nbsp;&nbsp;<strong>1、基线条件：指的是停止调用自己的条件</strong><br><br>    &nbsp;&nbsp;<strong>2、递归条件：指的是调用自身的条件</strong><br></p>
+<p>知道了两大条件后我们还需要了解到 递归函数的原理：既计算机是如何调用递归式的函数：<br><br>    &nbsp;&nbsp;<strong>1、计算机中有一个调用栈的内存空间，这个空间 专门用于存放计算机将要调用的函数列表。</strong> <br><br>    &nbsp;&nbsp;<strong>2、调用栈的两种使用方式，压入栈和弹出栈，这两个方法，好似存放和再拿出来使用。</strong><br><br>    &nbsp;&nbsp;<strong>3、递归函数，其实刚开始执行时，是先把已知的待执行函数都存放到调用栈中，然后依次执行，由于栈是先进后出的，所以递归函数的执行顺序是和我们想象中的有所不同的。</strong><br></p>
+<p>好了，了解完递归的原理后，我们再拿开篇的函数sum 执行你会发现，刚开始执行时：sum([1,2],3)被放到待执行栈中。然后依次是sum([1],5)、sum([],6)<br>因为栈的特性：所以执行顺序刚好是相反的，sum([],6)  =&gt;  sum([1],5)  =&gt;  sum([1,2],3)  所以我们最终得到的 3<br><br><br><br>具体执行顺序请看完整的流程图：<br></p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/11/27/16754b8785bdbab5?w=251&amp;h=928&amp;f=png&amp;s=38351" alt>)</p>
+<p>其实正确的写法很简单，并不需要传递多余的参数：<br><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function sum(arr)&#123;</span><br><span class="line">    if(arr.length)&#123;</span><br><span class="line">        return arr.pop()  +  sum(arr)</span><br><span class="line">    &#125;</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line">sum([1,2,3]);</span><br></pre></td></tr></table></figure></p>
+<p>你get 到递归函数的技能了吗？</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/css网页的几种布局/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,63 +302,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/第一篇博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jack chen">
-      <meta itemprop="description" content="记录一只程序汪的生活、工作的总结，">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小陈仔的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/05/09/第一篇博客/" class="post-title-link" itemprop="url">第一篇博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-05-09 12:28:24" itemprop="dateCreated datePublished" datetime="2019-05-09T12:28:24+08:00">2019-05-09</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="default">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -318,6 +328,13 @@
 
               <time title="Created: 2019-05-09 12:14:41" itemprop="dateCreated datePublished" datetime="2019-05-09T12:14:41+08:00">2019-05-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-05 17:10:41" itemprop="dateModified" datetime="2020-05-05T17:10:41+08:00">2020-05-05</time>
+              </span>
 
           
 
@@ -425,7 +442,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
